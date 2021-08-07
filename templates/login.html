@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+sdadasdsada
+<button id="kakao-login-btn" onclick="snsLogin()">로그인</button>
+<button onclick="logout()">로그아웃</button>
+</body>
+</html>
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init("7b4e38b98de6db87145856c4a449cb5d")
+console.log(Kakao.isInitialized());
+    function snsLogin(){
+      Kakao.Auth.createLoginButton({
+        container: '#kakao-login-btn',
+        success: function(response) {
+            console.log(response)
+            Kakao.API.request({
+                url: '/v2/user/me',
+                success: function (result) {
+                    console.log(result)
+                },
+                fail: function () {
+
+                },
+            })
+        },
+        fail: function(error) {
+          console.log(error);
+        },
+      });
+    }
+
+    function logout(){
+        if (Kakao.Auth.getAccessToken()) {
+          Kakao.API.request({
+            url: '/v1/user/unlink',
+            success: function (response) {
+                console.log(response)
+            },
+            fail: function (error) {
+              console.log(error)
+            },
+          })
+          Kakao.Auth.setAccessToken(undefined)
+        }
+    }
+</script>
