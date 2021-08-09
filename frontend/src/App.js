@@ -1,19 +1,17 @@
-import './App.css';
-import axios_plugin from "./axios_plugin";
+import "./App.css";
+import CustomAxios from "./axiosPlugin";
 
 function App() {
-  const onClick = () => {
-    axios_plugin.sendAxios("http://localhost:80/test",{},function (rtn){
-      alert(111111111)
-    })
-  }
+  // const onClick = () => {
+  //   axios_plugin.sendAxios("http://localhost:80/test",{},function (rtn){
+  //     alert(111111111)
+  //   })
+  // }
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={onClick} >
-          aaa
-        </button>
-          Learn Reactaaaaaaaaaaaaaaaaaaaaaaaa
+        <CustomAxios />
+        Learn Reactaaaaaaaaaaaaaaaaaaaaaaaa
       </header>
     </div>
   );
