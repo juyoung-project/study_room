@@ -1,0 +1,63 @@
+@import "./00_variables.scss";
+
+#root::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #ededed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.header {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
+  height: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    width: 165px;
+    a {
+      display: block;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  .top-menu {
+    display: flex;
+    a.btn {
+      color: $btn-text-color-basic;
+    }
+    a.btn.border {
+      display: block;
+      border: 1px solid $btn-text-color-basic;
+    }
+    a.btn + a.btn {
+      margin-left: 16px;
+    }
+    a.btn:hover {
+      color: $btn-text-color-basic-hover;
+    }
+    a.btn.border:hover {
+      border-color: $btn-text-color-basic-hover;
+    }
+  }
+}
+
+main {
+  max-width: 1280px;
+  min-height: calc(100vh - 80px);
+  margin: 0 auto;
+}

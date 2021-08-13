@@ -1,0 +1,84 @@
+@import "./00_variables.scss";
+
+main.signin-form {
+  text-align: center;
+  div {
+    width: 300px;
+  }
+  form {
+    input {
+      padding: 15px;
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    width: 360px;
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+form {
+  .login-input {
+    width: 100%;
+  }
+  .login-input:first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .login-input:nth-child(2) {
+    border-top-color: transparent;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .login-input:focus {
+    z-index: 10;
+  }
+  .login-input:nth-child(2):focus {
+    border-top-color: $focus-box-color-basic;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 20px 0;
+    height: 40px;
+  }
+  .input-group.email-input {
+    div {
+      display: flex;
+      justify-content: space-between;
+      input,
+      select {
+        width: 170px;
+      }
+      .email-input-separator {
+        color: $btn-text-color-basic;
+        display: block;
+        line-height: 40px;
+      }
+    }
+  }
+
+  // select box 클라이언트 직접입력
+  select.form-control + .client-input {
+    display: none;
+  }
+}
+
+.login-submenu {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 80px;
+}
+
+.login.sns {
+  button:before {
+    left: 0;
+  }
+}

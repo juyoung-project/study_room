@@ -1,0 +1,27 @@
+@import "./00_variables.scss";
+
+.main {
+  background: url(../img/main/main.png) left no-repeat;
+  background-size: 600px;
+  padding: 0 40px;
+  position: relative;
+  h2 {
+    text-align: right;
+    font-size: 52px;
+    position: absolute;
+    right: 40px;
+    top: 35%;
+    cursor: default;
+    em {
+      font-size: 20px;
+      display: block;
+      margin-top: 18px;
+    }
+    span {
+      display: block;
+      font-size: 14px;
+      color: $btn-text-color-basic;
+      margin-top: 18px;
+    }
+  }
+}

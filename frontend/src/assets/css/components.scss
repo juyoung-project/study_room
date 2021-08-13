@@ -1,0 +1,119 @@
+/* 엘리먼트 공통 : 폼, 버튼, 표, 탭, 팝업 등 */
+@import "./00_variables.scss";
+
+// form
+form {
+  input,
+  select {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid $box-color-basic;
+    line-height: 20px;
+    border-radius: 6px;
+    position: relative;
+    padding: 9px 15px;
+    font-size: 15px;
+  }
+  input:focus,
+  select:focus {
+    border-color: $focus-box-color-basic;
+    box-shadow: $focus-box-shadow-basic;
+  }
+  input::placeholder {
+    color: $btn-text-color-basic;
+  }
+
+  .input-group {
+    label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    label + em {
+      display: block;
+      margin-bottom: 10px;
+      color: $btn-text-color-basic-hover;
+      font-size: 13px;
+    }
+    input {
+      width: 100%;
+    }
+  }
+  .input-group + .input-group {
+    margin-top: 30px;
+  }
+}
+
+// button
+.btn {
+  border-radius: 6px;
+  padding: 6px 8px;
+  transition: 0.3s;
+  text-align: center;
+  color: inherit;
+}
+.btn.brand-color {
+  background: $brand-color;
+  border: none;
+  color: #ffffff;
+}
+.btn.brand-color:hover {
+  background: $brand-color-hover;
+}
+
+// text hover 하면 밑줄 생기는 효과
+.text-effect.basic {
+  position: relative;
+}
+.text-effect.basic::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  top: 100%;
+  background-color: $text-primary;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.2s;
+}
+.text-effect.basic:hover::before {
+  width: 100%;
+}
+
+// 카카오로 로그인하기
+.login {
+  button {
+    cursor: pointer;
+    position: relative;
+    height: 100% !important;
+    display: block;
+    padding-left: 50px !important;
+    line-height: 40px !important;
+    transition: 0.2s;
+    width: auto !important;
+    color: inherit !important;
+    background-color: inherit !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+  }
+  button:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 16px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: url(../img/common/icon-kakao.png) center no-repeat;
+    background-size: contain;
+  }
+  // .login.email::before {
+  //   background-image: url(../img/common/icon-email.png);
+  //   background-size: 86%;
+  // }
+  button:hover {
+    color: $focus-text-color-basic !important;
+  }
+}

@@ -1,19 +1,23 @@
-import "./App.css";
-import CustomAxios from "./axiosPlugin";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./components/Header";
+import Main from "./pages/Main";
+import SigninForm from "./pages/SigninForm";
+import SignupForm from "./pages/SignupForm";
+import "./assets/css/reset.css";
+import "./assets/css/web-font.css";
+import "./assets/css/components.scss";
+import "./assets/css/common.scss";
 
 function App() {
-  // const onClick = () => {
-  //   axios_plugin.sendAxios("http://localhost:80/test",{},function (rtn){
-  //     alert(111111111)
-  //   })
-  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <CustomAxios />
-        Learn Reactaaaaaaaaaaaaaaaaaaaaaaaa
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/signup" component={SignupForm} />
+        <Route path="/signin" component={SigninForm} />
+        <Route path="/" exact component={Main} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
