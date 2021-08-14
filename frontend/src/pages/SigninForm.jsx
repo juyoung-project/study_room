@@ -1,4 +1,5 @@
 import "../assets/css/signinup-form.scss";
+import CustomAxios from "../axiosPlugin";
 import KakaoSignUp from "../components/KakaoSignUp";
 
 export default function SigninForm() {
@@ -13,9 +14,10 @@ export default function SigninForm() {
             type="password"
             placeholder="비밀번호"
           />
-          <button className="btn brand-color" type="submit">
-            로그인
-          </button>
+          <CustomAxios/>
+          {/*<button className="btn brand-color" type="submit">*/}
+          {/*  로그인*/}
+          {/*</button>*/}
         </form>
         <div className="login-submenu">
           <a href="#" className="text-effect basic">
