@@ -1,18 +1,37 @@
 import React from "react";
 import axios from "axios";
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
 export default class CustomAxios extends React.Component {
+
   render() {
-    return <button onClick={this.click} className="btn brand-color" type="submit">로그인</button>;
-    // <button onClick={this.click}>aaa</button>;
+    return <a onClick={this.click} className="btn brand-color" >로그인</a>;
   }
 
+  getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
   click = () => {
     alert("click");
     this.sendAxios(
-      "http://localhost:80/test",
+      "/api/login",
       {},
       function (rtn) {
+          console.log(  rtn.data )
+          alert("여기서 페이지 이동 한다.")
         alert("function (rtn)");
       },
       function () {
@@ -23,7 +42,6 @@ export default class CustomAxios extends React.Component {
 
   sendAxios = (url, params, callback, failcallback) => {
     let data = params;
-    alert("sendAxios");
 
     return axios
       .request({
@@ -33,6 +51,7 @@ export default class CustomAxios extends React.Component {
       })
       .then(function (resp) {
         let data = resp.data;
+        alert(1111)
         let returnCode = data.returnCode;
         let returnMessage = data.returnMessage;
 
@@ -54,7 +73,6 @@ export default class CustomAxios extends React.Component {
         return data;
       })
       .catch(function () {
-        alert("실패!!!");
         failcallback(data);
       });
   };

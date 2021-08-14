@@ -7,6 +7,7 @@ import "./assets/css/reset.css";
 import "./assets/css/web-font.css";
 import "./assets/css/components.scss";
 import "./assets/css/common.scss";
+import sendPost from "./commonAxios";
 
 function App() {
   return (

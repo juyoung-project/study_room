@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
+import main.views
 from study_room.login.views import LoginTemplateHandler, LoginHandler
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include("main.urls")),
     url(r'^$', LoginTemplateHandler.login_page_html, name='index'),
     url(r'^kakao_login/', LoginHandler.test, name='kakao_login')
 ]

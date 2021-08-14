@@ -1,23 +1,29 @@
 import "../assets/css/signinup-form.scss";
 import CustomAxios from "../axiosPlugin";
 import KakaoSignUp from "../components/KakaoSignUp";
+import sendPost from "../commonAxios";
 
 export default function SigninForm() {
+  function sendLogin(){
+    sendPost("/api/login",{},function (rtn){
+
+    })
+  }
   return (
     <main className="signin-form">
       <div>
         <h2>로그인</h2>
-        <form action="#" method="post" className="">
+        <form method="post" className="">
           <input className="login-input" type="text" placeholder="이메일" />
           <input
             className="login-input"
             type="password"
             placeholder="비밀번호"
           />
-          <CustomAxios/>
-          {/*<button className="btn brand-color" type="submit">*/}
-          {/*  로그인*/}
-          {/*</button>*/}
+          {/*<CustomAxios/>*/}
+          <button className="btn brand-color" onClick={sendLogin}>
+            로그인
+          </button>
         </form>
         <div className="login-submenu">
           <a href="#" className="text-effect basic">

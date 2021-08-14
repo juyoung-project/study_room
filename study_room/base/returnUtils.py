@@ -12,6 +12,7 @@ class CustomEncoder(json.JSONEncoder):
         except TypeError:
             return str(obj)
 
+
 class ReturnService:
 
     @staticmethod
@@ -20,7 +21,7 @@ class ReturnService:
 
     @staticmethod
     def build_json(data, msg=None):
-        return HttpResponse(json.dumps(ReturnService.__build_message(data, msg), default=lambda x: x.__dict__, indent=4, ensure_ascii=False), content_type='application/json');
+        return HttpResponse(json.dumps(ReturnService.__build_msg(data, msg), default=lambda x: x.__dict__, indent=4, ensure_ascii=False), content_type='application/json');
 
     @staticmethod
     def __build_render_page(request, page_name, data, msg):
@@ -36,6 +37,7 @@ class ReturnService:
             "success": True,
             "status": True,
             "rejected": False,
+            "returnCode" : 0,
             "data": data,
             "msg": msg,
         }

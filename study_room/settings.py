@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'study_room',
     'main'
 ]
 
@@ -92,9 +93,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'study_room',
-        'USER' : 'postgres',
+        'USER' : 'gimjuyeong',
         'PASSWORD' : 'asd1234!',
-        'HOST' : 'gimjuyeong',
+        'HOST' : 'localhost',
         'PORT' : "5432"
         # 'NAME': BASE_DIR / 'db.sqlite3',
     }
