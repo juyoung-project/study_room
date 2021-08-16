@@ -20,7 +20,7 @@ form {
     box-shadow: $focus-box-shadow-basic;
   }
   input::placeholder {
-    color: $btn-text-color-basic;
+    color: $text-color-basic;
   }
 
   .input-group {
@@ -33,7 +33,7 @@ form {
     label + em {
       display: block;
       margin-bottom: 10px;
-      color: $btn-text-color-basic-hover;
+      color: $text-color-basic-dark;
       font-size: 13px;
     }
     input {
