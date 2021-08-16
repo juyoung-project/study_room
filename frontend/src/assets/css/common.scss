@@ -1,32 +1,18 @@
 @import "./00_variables.scss";
 
-#root::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: #ededed;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
-.header {
-  position: fixed;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 0);
-  width: 100%;
-  height: 80px;
+#header,
+main,
+#footer > div {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+#header,
+#footer > div {
+  width: 100%;
   padding: 16px;
   box-sizing: border-box;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   h1 {
-    width: 165px;
     a {
       display: block;
       img {
@@ -35,29 +21,106 @@
       }
     }
   }
+}
+
+#header {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  height: 80px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  h1 {
+    width: 165px;
+  }
   .top-menu {
     display: flex;
     a.btn {
-      color: $btn-text-color-basic;
+      color: $text-color-basic;
     }
     a.btn.border {
       display: block;
-      border: 1px solid $btn-text-color-basic;
+      border: 1px solid $text-color-basic;
     }
     a.btn + a.btn {
       margin-left: 16px;
     }
     a.btn:hover {
-      color: $btn-text-color-basic-hover;
+      color: $text-color-basic-dark;
     }
     a.btn.border:hover {
-      border-color: $btn-text-color-basic-hover;
+      border-color: $text-color-basic-dark;
     }
   }
 }
+#header::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 1px;
+  background: #ededed;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+}
 
 main {
-  max-width: 1280px;
   min-height: calc(100vh - 80px);
-  margin: 0 auto;
+}
+
+#footer {
+  color: $text-color-basic-dark;
+  font-size: 10px;
+  background: #fafafa;
+  height: 112px;
+  div {
+    .footer-title {
+      display: flex;
+      h1 {
+        width: 96px;
+        margin-right: 20px;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li + li::before {
+          content: "";
+          display: inline-block;
+          width: 0.5px;
+          height: 8px;
+          background: $text-color-basic-dark;
+          margin: 0 4px;
+        }
+      }
+    }
+    dl {
+      dt,
+      dd {
+        display: inline-block;
+      }
+      dd::before {
+        content: "";
+        display: inline-block;
+        width: 0.5px;
+        height: 8px;
+        background: $text-color-basic-dark;
+        margin: 0 8px;
+      }
+      dd + dt::before {
+        content: "/";
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+    .copyright {
+      color: $text-primary;
+    }
+  }
+}
+#footer > div > * + * {
+  margin-top: 8px;
 }
