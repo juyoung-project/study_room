@@ -4,7 +4,7 @@ import KakaoSignUp from "./KakaoSignUp";
 
 export default function Header() {
   return (
-    <header className="header">
+    <header id="header">
       <h1>
         <NavLink to="/">
           <img src={logo} className="logo" alt="logo" />
