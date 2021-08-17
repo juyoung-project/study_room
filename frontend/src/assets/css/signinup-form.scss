@@ -12,7 +12,8 @@ main.signin-form {
   }
 }
 
-main {
+main.signin-form,
+main.signup-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,63 +23,63 @@ main {
       margin-bottom: 30px;
     }
   }
-}
 
-form {
-  .login-input {
-    width: 100%;
-  }
-  .login-input:first-child {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .login-input:nth-child(2) {
-    border-top-color: transparent;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  .login-input:focus {
-    z-index: 10;
-  }
-  .login-input:nth-child(2):focus {
-    border-top-color: $focus-box-color-basic;
-  }
+  form {
+    .login-input {
+      width: 100%;
+    }
+    .login-input:first-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .login-input:nth-child(2) {
+      border-top-color: transparent;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .login-input:focus {
+      z-index: 10;
+    }
+    .login-input:nth-child(2):focus {
+      border-top-color: $focus-box-color-basic;
+    }
 
-  .btn {
-    width: 100%;
-    margin: 20px 0;
-    height: 40px;
-  }
-  .input-group.email-input {
-    div {
-      display: flex;
-      justify-content: space-between;
-      input,
-      select {
-        width: 170px;
+    .btn {
+      width: 100%;
+      margin: 20px 0;
+      height: 40px;
+    }
+    .input-group.email-input {
+      div {
+        display: flex;
+        justify-content: space-between;
+        input,
+        select {
+          width: 170px;
+        }
+        .email-input-separator {
+          color: $text-color-basic;
+          display: block;
+          line-height: 40px;
+        }
       }
-      .email-input-separator {
-        color: $text-color-basic;
-        display: block;
-        line-height: 40px;
-      }
+    }
+
+    // select box 클라이언트 직접입력
+    select.form-control + .client-input {
+      display: none;
     }
   }
 
-  // select box 클라이언트 직접입력
-  select.form-control + .client-input {
-    display: none;
+  .login-submenu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 80px;
   }
-}
 
-.login-submenu {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 80px;
-}
-
-.login.sns {
-  button:before {
-    left: 0;
+  .login.sns {
+    button:before {
+      left: 0;
+    }
   }
 }

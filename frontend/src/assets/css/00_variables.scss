@@ -2,14 +2,22 @@
 $brand-color: #ffc947;
 $brand-color-hover: #fdb300;
 
+$system-red: #eb4e3d;
+$system-orange: #ff9500;
+$system-yellow: #f7ce46;
+$system-green: #34c759;
+$system-blue: #326edc;
+
+// text
+$text-primary: #24292e;
 // 회색계열
 $box-color-basic: #e1e4e8;
 $text-color-basic: #a3a3a3;
 $text-color-basic-dark: #757575;
 
-$text-primary: #24292e;
-
 // input box colors
-$focus-text-color-basic: #326edc;
 $focus-box-color-basic: rgba(33, 130, 193, 0.5);
 $focus-box-shadow-basic: 0px 0px 6px 0px rgba(41, 110, 214, 0.34);
+
+// side bar colors
+$side-bar-bg: #f7f6f2;
