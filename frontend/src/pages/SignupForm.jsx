@@ -61,7 +61,7 @@ export default function SignupForm() {
             </li>
             <li className="input-group nickname-input">
               <label htmlFor="nickname-input">닉네임</label>
-              <em>다른 유저와 겹치지 않는 별명을 입력해주세요. (2~15자)</em>
+              <em>스터디룸에서 사용 할 별명을 입력해주세요. (2~15자)</em>
               <input
                 type="text"
                 id="nickname-input"
