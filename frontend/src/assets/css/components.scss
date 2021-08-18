@@ -1,5 +1,19 @@
 /* 엘리먼트 공통 : 폼, 버튼, 표, 탭, 팝업 등 */
-@import "./00_variables.scss";
+@import "./Variables.scss";
+
+// 사이즈별  정리
+.w100 {
+  width: 100%;
+}
+.w50 {
+  width: 50%;
+}
+.h50 {
+  height: 50%;
+}
+.h100 {
+  height: 100%;
+}
 
 // form
 form {
@@ -45,7 +59,7 @@ form {
   }
 }
 
-// button
+// 버튼
 .btn {
   border-radius: 6px;
   padding: 6px 8px;
@@ -61,8 +75,20 @@ form {
 .btn.brand-color:hover {
   background: $brand-color-hover;
 }
-.btn.regular {
+// 버튼 사이즈
+// 높이
+.btn.short {
+  height: 32px;
+}
+.btn.regular-h {
   height: 40px;
+}
+// 너비
+.btn.regular-w {
+  min-width: 200px;
+}
+.btn.wide {
+  width: 100%;
 }
 
 // text hover 하면 밑줄 생기는 효과
@@ -140,12 +166,12 @@ ul.pagination li {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-}
-ul.pagination li:first-child {
-  border-radius: 5px 0 0 5px;
-}
-ul.pagination li:last-child {
-  border-radius: 0 5px 5px 0;
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+  }
 }
 ul.pagination li a {
   text-decoration: none;
