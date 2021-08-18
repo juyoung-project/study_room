@@ -1,16 +1,14 @@
-import "../assets/css/signinup-form.scss";
+import "../assets/css/SigninupForm.scss";
 import CustomAxios from "../axiosPlugin";
 import KakaoSignUp from "../components/KakaoSignUp";
 import sendPost from "../commonAxios";
 
-export default function SigninForm() {
-  function sendLogin(){
-    sendPost("/api/login",{},function (rtn){
-
-    })
+const SigninForm = () => {
+  function sendLogin() {
+    sendPost("/api/login", {}, function (rtn) {});
   }
   return (
-    <main className="signin-form">
+    <main id="main" className="signin-form">
       <div>
         <h2>로그인</h2>
         <form method="post" className="">
@@ -39,4 +37,6 @@ export default function SigninForm() {
       </div>
     </main>
   );
-}
+};
+
+export default SigninForm;

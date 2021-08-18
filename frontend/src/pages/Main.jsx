@@ -1,8 +1,8 @@
-import "../assets/css/main.scss";
+import "../assets/css/Main.scss";
 
-export default function Main() {
+const Main = () => {
   return (
-    <main className="main">
+    <main id="main" className="main">
       <h2>
         우리들이 만나는 또 다른 공간
         <em>Study Room과 함께 이야기하고 공부하며 즐거운 시간을 보내볼까요?</em>
@@ -10,4 +10,6 @@ export default function Main() {
       </h2>
     </main>
   );
-}
+};
+
+export default Main;

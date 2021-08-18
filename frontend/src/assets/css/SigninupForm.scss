@@ -1,4 +1,4 @@
-@import "./00_variables.scss";
+@import "./Variables.scss";
 
 main.signin-form {
   text-align: center;
@@ -27,21 +27,21 @@ main.signup-form {
   form {
     .login-input {
       width: 100%;
-    }
-    .login-input:first-child {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    .login-input:nth-child(2) {
-      border-top-color: transparent;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-    .login-input:focus {
-      z-index: 10;
-    }
-    .login-input:nth-child(2):focus {
-      border-top-color: $focus-box-color-basic;
+      &:first-child {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &:nth-child(2) {
+        border-top-color: transparent;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+      &:focus {
+        z-index: 10;
+      }
+      &:nth-child(2):focus {
+        border-top-color: $focus-box-color-basic;
+      }
     }
 
     .btn {

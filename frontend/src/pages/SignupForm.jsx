@@ -1,6 +1,6 @@
-import "../assets/css/signinup-form.scss";
+import "../assets/css/SigninupForm.scss";
 
-export default function SignupForm() {
+const SignupForm = () => {
   const domain = [
     "naver.com",
     "hanmail.net",
@@ -16,7 +16,7 @@ export default function SignupForm() {
   ));
 
   return (
-    <main className="signup-form">
+    <main id="main" className="signup-form">
       <div>
         <h2>회원가입</h2>
         <form action="#" method="post">
@@ -76,4 +76,6 @@ export default function SignupForm() {
       </div>
     </main>
   );
-}
+};
+
+export default SignupForm;

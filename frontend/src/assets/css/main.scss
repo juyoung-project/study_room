@@ -1,11 +1,10 @@
-@import "./00_variables.scss";
+@import "./Variables.scss";
 
 main.main {
   background: url(../img/main/main.png) left no-repeat;
   background-size: 600px;
-  padding: 0 40px;
   position: relative;
-  min-height: calc(100vh - 80px - 112px);
+  min-height: calc(100vh - 80px - 112px) !important;
   h2 {
     text-align: right;
     font-size: 52px;

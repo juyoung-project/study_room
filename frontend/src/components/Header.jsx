@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../assets/img/common/logo.png";
 import KakaoSignUp from "./KakaoSignUp";
 
-export default function Header() {
+const Header = () => {
   return (
     <header id="header">
       <h1>
@@ -20,4 +20,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

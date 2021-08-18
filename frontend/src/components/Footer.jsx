@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/img/common/logo-text.png";
 
-export default function Footer() {
+const Footer = () => {
   const developer = [
     {
       name: "Lee Do Hyun",
@@ -14,6 +14,7 @@ export default function Footer() {
       email: "wndud8830@naver.com",
     },
   ];
+
   const developerList = developer.map((developer) => (
     <>
       <dt>{developer.name}</dt>
@@ -58,4 +59,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

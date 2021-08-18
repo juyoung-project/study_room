@@ -1,7 +1,30 @@
-@import "./00_variables.scss";
+@import "./Variables.scss";
+
+body {
+  margin: 0;
+  font-family: "AppleSDGothicNeo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #222222;
+}
+
+#root {
+  position: relative;
+  /* min-width: 1024px; */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 
 #header,
-main,
+#main,
 #footer > div {
   max-width: 1280px;
   margin: 0 auto;
@@ -68,7 +91,7 @@ main,
   transform: translate(-50%, 0);
 }
 
-main {
+#main {
   min-height: calc(100vh - 80px);
   padding: 0 16px;
 }
