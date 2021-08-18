@@ -1,0 +1,83 @@
+@import "../../assets/css/Variables.scss";
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6);
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 25px;
+    background: #ffffff;
+    animation: modal-show 0.3s;
+    header {
+      position: relative;
+      .title {
+        font-size: 18px;
+      }
+      .close-modal {
+        position: absolute;
+        top: -4px;
+        right: 0;
+        color: $text-color-basic;
+        font-size: 24px;
+      }
+    }
+    main {
+      margin-bottom: 40px;
+      em {
+        display: block;
+        margin-top: 40px;
+        font-weight: 500;
+        & + p {
+          font-size: 12px;
+          color: $text-color-basic-dark;
+          margin: 12px 0;
+        }
+      }
+      .select-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: $text-color-basic;
+      }
+    }
+    footer {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.modal.on {
+  display: block;
+  animation: modal-bg-show 0.3s;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -10px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
