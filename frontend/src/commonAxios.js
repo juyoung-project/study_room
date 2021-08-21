@@ -1,7 +1,6 @@
 import Axios from "axios"
 
 const axiosInstance = Axios.create({
-    timeout : 5000,
     headers :{
         "Content-Type" : "applications/json",
     }
@@ -14,7 +13,7 @@ const sendPost = function (url, params, callback, failcallback){
       .request({
         method: "post",
         url: url,
-        data: data,
+        data: JSON.stringify ( data ),
       })
       .then(function (resp) {
         let data = resp.data;

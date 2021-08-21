@@ -8,6 +8,7 @@ from django.utils import timezone
 
 class UserDetail(models.Model):
     user = models.ForeignKey('auth.user',blank=False, null=False, on_delete=models.CASCADE)
+    nick_name = models.CharField(max_length=256)
     create_time = models.DateTimeField(default=timezone.now())
     isdeleted = models.BooleanField(default=False)
 

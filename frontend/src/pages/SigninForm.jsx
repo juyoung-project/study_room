@@ -5,7 +5,21 @@ import sendPost from "../commonAxios";
 
 const SigninForm = () => {
   function sendLogin() {
-    sendPost("/api/login", {}, function (rtn) {});
+    let param = {
+      "email" : "wndud8830@naver.com",
+      "password":"asd1234!"
+    }
+    sendPost("/api/login", param, function (rtn) {},function (){});
+  }
+  function sendEamil(){
+    let param = {
+      "to" : "wndud8830@naver.com"
+    }
+    sendPost("/api/send/email",param,function (rtn){
+      alert("이메일 발송")
+    },function (){
+      alert("통신 실패")
+    })
   }
   return (
     <main id="main" className="signin-form">
@@ -19,12 +33,12 @@ const SigninForm = () => {
             placeholder="비밀번호"
           />
           {/*<CustomAxios/>*/}
-          <button className="btn brand-color" onClick={sendLogin}>
+          <a className="btn brand-color" onClick={sendLogin}>
             로그인
-          </button>
+          </a>
         </form>
         <div className="login-submenu">
-          <a href="#" className="text-effect basic">
+          <a href="#" className="text-effect basic" onClick={sendEamil}>
             비밀번호 재설정
           </a>
           <a href="/signup" className="text-effect basic">

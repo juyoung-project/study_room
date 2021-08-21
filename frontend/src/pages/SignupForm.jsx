@@ -1,4 +1,5 @@
 import "../assets/css/SigninupForm.scss";
+import sendPost from "../commonAxios";
 
 const SignupForm = () => {
   const domain = [
@@ -14,6 +15,19 @@ const SignupForm = () => {
   const domainList = domain.map((domain) => (
     <option value={domain}>{domain}</option>
   ));
+
+  function createUser(){
+    let params = {
+      "nick_name" : "웅이",
+      "email" : "wndud8830@naver.com",
+      "password":"asd1234!"
+    }
+    sendPost('/api/sign/up',params,function (rtn){
+      console.log(rtn)
+    },function (){
+
+    })
+  }
 
   return (
     <main id="main" className="signup-form">
@@ -69,9 +83,9 @@ const SignupForm = () => {
               />
             </li>
           </ul>
-          <button type="submit" className="btn brand-color">
+          <a className="btn brand-color" onClick={createUser}>
             회원가입하기
-          </button>
+          </a>
         </form>
       </div>
     </main>
