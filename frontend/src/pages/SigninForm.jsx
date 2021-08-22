@@ -9,7 +9,10 @@ const SigninForm = () => {
       "email" : "wndud8830@naver.com",
       "password":"asd1234!"
     }
-    sendPost("/api/login", param, function (rtn) {},function (){});
+    sendPost("/api/login", param, function (rtn) {
+      console.log(rtn.data.access_token)
+      alert(sessionStorage.getItem("access_token"))
+    },function (){});
   }
   function sendEamil(){
     let param = {

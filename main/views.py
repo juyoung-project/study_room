@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework_jwt.settings import api_settings
@@ -40,6 +40,7 @@ class UserUtils:
 
         return ReturnService.build_json({})
 
+    @ensure_csrf_cookie
     @csrf_exempt
     def userLogin(request):
         JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
@@ -54,11 +55,14 @@ class UserUtils:
             return ReturnService.build_json({},"존재하지 않는 이메일")
 
         if check_password(password,user.password) :
-            print("비밀벙호 일치")
 
-        payload = JWT_PAYLOAD_HANDLER(user)
-        jwt_token = JWT_ENCODE_HANDLER(payload)  # 토큰 발행
-        return ReturnService.build_json({"access_token":jwt_token},"토근 까지 완료")
+            payload = JWT_PAYLOAD_HANDLER(user)
+            jwt_token = JWT_ENCODE_HANDLER(payload)  # 토큰 발행
+            request.COOKIES["access_token"] = jwt_token
+            # print(response.COOKIES.get("access_token"))
+            return ReturnService.build_json({"access_token":jwt_token},"토근 까지 완료")
+
+        return ReturnService.build_json({},"비밀번호 또는 이메일이 일치하지 않습니다.")
 
 class EmailUtils:
 
