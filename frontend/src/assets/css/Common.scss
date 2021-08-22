@@ -1,0 +1,151 @@
+@import "./Variables.scss";
+@import "./WebFont.css";
+
+body {
+  margin: 0;
+  font-family: "AppleSDGothicNeo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #222222;
+}
+
+#root {
+  position: relative;
+  /* min-width: 1024px; */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#header,
+#main,
+#footer > div {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#header,
+#footer > div {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  h1 {
+    a {
+      display: block;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+#header {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  height: 80px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  h1 {
+    width: 165px;
+  }
+  .top-menu {
+    display: flex;
+    a.btn {
+      color: $text-color-basic;
+    }
+    a.btn.border {
+      display: block;
+      border: 1px solid $text-color-basic;
+    }
+    a.btn + a.btn {
+      margin-left: 16px;
+    }
+    a.btn:hover {
+      color: $text-color-basic-dark;
+    }
+    a.btn.border:hover {
+      border-color: $text-color-basic-dark;
+    }
+  }
+}
+#header::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 1px;
+  background: #ededed;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+}
+
+#main {
+  min-height: calc(100vh - 80px);
+  padding: 0 16px;
+}
+
+#footer {
+  color: $text-color-basic-dark;
+  font-size: 10px;
+  background: #fafafa;
+  height: 112px;
+  div {
+    .footer-title {
+      display: flex;
+      h1 {
+        width: 96px;
+        margin-right: 20px;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li + li::before {
+          content: "";
+          display: inline-block;
+          width: 0.5px;
+          height: 8px;
+          background: $text-color-basic-dark;
+          margin: 0 4px;
+        }
+      }
+    }
+    dl {
+      dt,
+      dd {
+        display: inline-block;
+      }
+      dd::before {
+        content: "";
+        display: inline-block;
+        width: 0.5px;
+        height: 8px;
+        background: $text-color-basic-dark;
+        margin: 0 8px;
+      }
+      dd + dt::before {
+        content: "/";
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+    .copyright {
+      color: $text-primary;
+    }
+  }
+}
+#footer > div > * + * {
+  margin-top: 8px;
+}

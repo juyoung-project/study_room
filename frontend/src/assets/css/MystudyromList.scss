@@ -1,0 +1,49 @@
+@import "./Variables.scss";
+
+main.my-studyroom-list {
+  display: flex;
+  section.user-info {
+    width: 40%;
+    min-width: 230px;
+    box-sizing: border-box;
+    padding-top: 104px;
+    background: url(../img/main/main.png) bottom no-repeat;
+    background-size: 350px;
+  }
+  section.user-studyroom-list {
+    padding: 40px 0;
+    width: 60%;
+    h2 {
+      font-size: 36px;
+      em {
+        color: $system-blue;
+      }
+    }
+    div.user-input {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+      form.search-studyroom {
+        // width: calc(100% - 버튼 너비);
+        width: calc(100% - 180px);
+        input {
+          width: 90%;
+        }
+      }
+      button.create-studyroom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        &::before {
+          content: "";
+          display: block;
+          width: 28px;
+          height: 17px;
+          background: url(../img/common/logo-door.png) no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
