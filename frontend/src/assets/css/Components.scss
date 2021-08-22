@@ -61,11 +61,16 @@ form {
 
 // 버튼
 .btn {
+  box-sizing: border-box;
   border-radius: 6px;
   padding: 6px 8px;
   transition: 0.3s;
   text-align: center;
   color: inherit;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btn.brand-color {
   background: $brand-color;

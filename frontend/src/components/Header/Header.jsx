@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/img/common/logo.png";
-import KakaoSignUp from "./KakaoSignUp";
+import logo from "../../assets/img/common/logo.png";
+import KakaoSignUp from "../KakaoSignUp";
 
 const Header = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const setTopMenu = () => {
+    setIsLogin(!isLogin);
+  };
   return (
     <header id="header">
       <h1>

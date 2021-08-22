@@ -6,23 +6,30 @@ import sendPost from "../commonAxios";
 const SigninForm = () => {
   function sendLogin() {
     let param = {
-      "email" : "wndud8830@naver.com",
-      "password":"asd1234!"
-    }
-    sendPost("/api/login", param, function (rtn) {
-      console.log(rtn.data.access_token)
-      alert(sessionStorage.getItem("access_token"))
-    },function (){});
+      email: "wndud8830@naver.com",
+      password: "asd1234!",
+    };
+    sendPost(
+      "/api/login",
+      param,
+      function (rtn) {},
+      function () {}
+    );
   }
-  function sendEamil(){
+  function sendEamil() {
     let param = {
-      "to" : "wndud8830@naver.com"
-    }
-    sendPost("/api/send/email",param,function (rtn){
-      alert("이메일 발송")
-    },function (){
-      alert("통신 실패")
-    })
+      to: "wndud8830@naver.com",
+    };
+    sendPost(
+      "/api/send/email",
+      param,
+      function (rtn) {
+        alert("이메일 발송");
+      },
+      function () {
+        alert("통신 실패");
+      }
+    );
   }
   return (
     <main id="main" className="signin-form">
@@ -36,7 +43,7 @@ const SigninForm = () => {
             placeholder="비밀번호"
           />
           {/*<CustomAxios/>*/}
-          <a className="btn brand-color" onClick={sendLogin}>
+          <a className="btn brand-color regular-h" onClick={sendLogin}>
             로그인
           </a>
         </form>

@@ -1,33 +1,46 @@
+import { useState } from "react";
 import "../assets/css/SigninupForm.scss";
 import sendPost from "../commonAxios";
+import dataDict from "./data";
 
 const SignupForm = () => {
-  const domain = [
-    "naver.com",
-    "hanmail.net",
-    "daum.net",
-    "gmail.com",
-    "nate.com",
-    "hotmail.com",
-    "outlook.com",
-    "icloud.com",
-  ];
+  const [signUpInputs, setInputs] = useState({
+    nick_name: "",
+    email: "",
+    password: "",
+  });
+
+  const { nick_name, email, password } = signUpInputs;
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+
+    setInputs({
+      ...signUpInputs,
+      [name]: value,
+    });
+  };
+
+  function createUser() {
+    let params = signUpInputs;
+    sendPost(
+      "/api/sign/up",
+      params,
+      function (rtn) {
+        console.log(rtn);
+        // 석세스
+        // 라우터고로 로그인 페이지로 보내버리기
+      },
+      function () {
+        // fail
+      }
+    );
+  }
+
+  const domain = dataDict.domain;
   const domainList = domain.map((domain) => (
     <option value={domain}>{domain}</option>
   ));
-
-  function createUser(){
-    let params = {
-      "nick_name" : "웅이",
-      "email" : "wndud8830@naver.com",
-      "password":"asd1234!"
-    }
-    sendPost('/api/sign/up',params,function (rtn){
-      console.log(rtn)
-    },function (){
-
-    })
-  }
 
   return (
     <main id="main" className="signup-form">
@@ -42,6 +55,9 @@ const SignupForm = () => {
                   type="text"
                   id="email-input-local"
                   placeholder="이메일"
+                  name="email"
+                  value={email}
+                  onChange={onChange}
                 />
                 <span className="email-input-separator">@</span>
                 <select className="form-control">
@@ -63,6 +79,9 @@ const SignupForm = () => {
                 type="password"
                 id="password-input"
                 placeholder="비밀번호"
+                name="password"
+                value={password}
+                onChange={onChange}
               />
             </li>
             <li className="input-group password-input-check">
@@ -80,10 +99,13 @@ const SignupForm = () => {
                 type="text"
                 id="nickname-input"
                 placeholder="별명 (2~15자)"
+                name="nick_name"
+                value={nick_name}
+                onChange={onChange}
               />
             </li>
           </ul>
-          <a className="btn brand-color" onClick={createUser}>
+          <a className="btn brand-color regular-h" onClick={createUser}>
             회원가입하기
           </a>
         </form>

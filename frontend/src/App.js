@@ -6,12 +6,12 @@ import SigninForm from "./pages/SigninForm";
 import SignupForm from "./pages/SignupForm";
 import MyStudyRoomList from "./pages/MyStudyRoomList";
 import StudyRoomDemo from "./pages/StudyRoomDemo";
-import "./assets/css/reset.css";
-import "./assets/css/components.scss";
-import "./assets/css/common.scss";
+import "./assets/css/Reset.css";
+import "./assets/css/Components.scss";
+import "./assets/css/Common.scss";
 import sendPost from "./commonAxios";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Header />
@@ -25,6 +25,6 @@ function App() {
       <Footer />
     </BrowserRouter>
   );
-}
+};
 
 export default App;

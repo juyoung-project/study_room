@@ -1,4 +1,4 @@
-import "../assets/css/animate.css";
+import "../assets/css/Animate.css";
 
 export default function PageLoading() {
   return (

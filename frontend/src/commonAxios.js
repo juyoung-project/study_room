@@ -64,6 +64,4 @@ const sendPost = function (url, params, callback, failcallback){
       });
 };
 
-
-
 export default sendPost;
