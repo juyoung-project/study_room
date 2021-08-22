@@ -3,6 +3,7 @@ import Modal from "../components/Modal";
 import Pagination from "react-js-pagination";
 import StudyRoomList from "../components/StudyRoomList";
 import "../assets/css/MystudyromList.scss";
+import UserInformation from "../components/UserInformation";
 
 const MyStudyRoomList = () => {
   // 모달 이벤트
@@ -36,20 +37,7 @@ const MyStudyRoomList = () => {
   return (
     <main id="main" id="main" className="my-studyroom-list">
       <section className="user-info">
-        <div>
-          <em className="profile">
-            웅이
-            <span className="user-status"></span>
-          </em>
-          <dl className="info">
-            <dt>활동상태</dt>
-            <dd>
-              <a href="#">대화 가능</a>
-            </dd>
-            <dt>스터디룸</dt>
-            <dd>4개</dd>
-          </dl>
-        </div>
+        <UserInformation />
       </section>
       <section className="user-studyroom-list">
         <h2>
