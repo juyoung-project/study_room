@@ -51,6 +51,7 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True, # refresh 사용 여부
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1), # 유효기간 설정
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=1), # JWT 토큰 갱신 유효기간
+    "JWT_AUTH_HEADER_PREFIX" : "JWT"
 }
 
 
@@ -120,7 +121,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'study_room',
-        'USER' : 'dohyun',
+        'USER' : 'gimjuyeong',
         'PASSWORD' : 'asd1234!',
         'HOST' : 'localhost',
         'PORT' : "5432"
