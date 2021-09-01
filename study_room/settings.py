@@ -43,6 +43,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# 암호키 json으로 받아오도록 수정해야함
 SECRET_KEY = 'django-insecure-hm%@g^&@jy+*=^t)-g3b7ts7j%@5qu7=t-ji*!h_szffwv&v&!'
 
 JWT_AUTH = {
@@ -116,7 +117,7 @@ WSGI_APPLICATION = 'study_room.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# database 정보 json 받아오도록 수정해야함
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
