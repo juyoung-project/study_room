@@ -43,6 +43,7 @@ ACCOUNT_LOGOUT_ON_GET = True
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# 암호키 json으로 받아오도록 수정해야함
 SECRET_KEY = 'django-insecure-hm%@g^&@jy+*=^t)-g3b7ts7j%@5qu7=t-ji*!h_szffwv&v&!'
 
 JWT_AUTH = {
@@ -51,6 +52,7 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True, # refresh 사용 여부
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1), # 유효기간 설정
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=1), # JWT 토큰 갱신 유효기간
+    "JWT_AUTH_HEADER_PREFIX" : "JWT"
 }
 
 
@@ -115,12 +117,12 @@ WSGI_APPLICATION = 'study_room.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# database 정보 json 받아오도록 수정해야함
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'study_room',
-        'USER' : 'dohyun',
+        'USER' : 'gimjuyeong',
         'PASSWORD' : 'asd1234!',
         'HOST' : 'localhost',
         'PORT' : "5432"

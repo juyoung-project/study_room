@@ -12,7 +12,13 @@ const SigninForm = () => {
     sendPost(
       "/api/login",
       param,
-      function (rtn) {},
+      function (rtn) {
+        alert(rtn.data.access_token)
+        sessionStorage.setItem("access_token", rtn.data.access_token)
+        if (rtn.data.isLogin){
+          alert("성공")
+        }
+      },
       function () {}
     );
   }
