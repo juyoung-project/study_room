@@ -14,7 +14,6 @@ from study_room.base.returnUtils import ReturnService
 from rest_framework_jwt.views import obtain_jwt_token
 import bcrypt
 
-from argon2 import PasswordHasher
 
 class UserUtils:
 
@@ -36,7 +35,7 @@ class UserUtils:
         if User.objects.filter(email=email).count() > 0:
             return ReturnService.build_json({},"이미존재하는 이메일 입니다.")
         else :
-            User.objects.create_user(username=username, email=email,password=password_crypt)
+            User.objects.create_user(username=username, email=email,password=password)
 
         return ReturnService.build_json({})
 
@@ -59,32 +58,3 @@ class UserUtils:
         payload = JWT_PAYLOAD_HANDLER(user)
         jwt_token = JWT_ENCODE_HANDLER(payload)  # 토큰 발행
         return ReturnService.build_json({"access_token":jwt_token},"토근 까지 완료")
-
-class EmailUtils:
-
-    @csrf_exempt
-    def sendInvitedMail(request):
-
-        body = request.body
-        print(obtain_jwt_token)
-        email_from = "kjo8830@gamil.com"
-        email_to = body['to']
-        print(email_to)
-        email_subject = "Study_Room에서 보내는 초대 링크입니다"
-        email_content = "도도니 이메일 발송까지 성공했지롱 으로 놀러오세요"
-
-        msg = EmailMessage()
-        msg.set_content(email_content)
-
-        msg["From"] = email_from
-        msg["To"] = email_to
-        msg["Subject"] = email_subject
-
-        smtp = smtplib.SMTP("smtp.gmail.com", 587)
-        smtp.starttls()
-        smtp.login("kjo8830@gmail.com", "@korea59")
-
-        smtp.send_message(msg)
-        smtp.quit()
-
-        return ReturnService.build_json({})

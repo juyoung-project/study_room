@@ -42,7 +42,6 @@ const SigninForm = () => {
             type="password"
             placeholder="비밀번호"
           />
-          {/*<CustomAxios/>*/}
           <a className="btn brand-color regular-h" onClick={sendLogin}>
             로그인
           </a>

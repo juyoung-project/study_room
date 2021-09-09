@@ -1,15 +1,21 @@
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import "./Modal.scss";
 
 const Modal = (props) => {
   const { isOpen, close, title, button, isbuttonlong } = props;
 
+  useEffect(() => {
+    isOpen
+      ? (document.querySelector("body").style.overflow = "hidden")
+      : (document.querySelector("body").style.overflow = "auto");
+  });
+
   return (
     <div className={isOpen ? "on modal" : "modal"}>
       {isOpen ? (
         <>
-          {(document.querySelector("body").style.overflow = "hidden")}
           <div className="card">
             <header>
               <h2 className="title">{title}</h2>
@@ -32,9 +38,7 @@ const Modal = (props) => {
             </footer>
           </div>
         </>
-      ) : (
-        (document.querySelector("body").style.overflow = "auto")
-      )}
+      ) : null}
     </div>
   );
 };

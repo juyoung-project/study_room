@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../assets/css/SigninupForm.scss";
 import sendPost from "../commonAxios";
 import dataDict from "./data";
@@ -7,33 +8,56 @@ const SignupForm = () => {
   const [signUpInputs, setInputs] = useState({
     nick_name: "",
     email: "",
+    domain_input: "",
     password: "",
+    password_check: "",
   });
-
-  const { nick_name, email, password } = signUpInputs;
+  const [isDone, setIsDone] = useState(false);
+  const { email, nick_name, domain_input, password, password_check } =
+    signUpInputs;
 
   const onChange = (e) => {
     const { value, name } = e.target;
-
     setInputs({
       ...signUpInputs,
       [name]: value,
     });
   };
 
-  function createUser() {
-    let params = signUpInputs;
+  useEffect(() => {
+    if (
+      signUpInputs.nick_name &&
+      signUpInputs.password_check &&
+      signUpInputs.email &&
+      signUpInputs.password === signUpInputs.password_check
+    ) {
+      setIsDone(true);
+      console.log(
+        "활성화 -> 비밀번호 일치하지 않는다고 css 처리하고 코드 정리 마저 하고 로그인 끝내기"
+      );
+      console.log(signUpInputs);
+    } else {
+      setIsDone(false);
+    }
+  });
+
+  function CreateUser() {
+    let params = {
+      ...signUpInputs,
+      email: `${email}@${domain_input}`,
+    };
+    delete params.domain_input;
+    delete params.password_check;
+    console.log(params);
+
     sendPost(
       "/api/sign/up",
       params,
       function (rtn) {
         console.log(rtn);
         // 석세스
-        // 라우터고로 로그인 페이지로 보내버리기
       },
-      function () {
-        // fail
-      }
+      function () {}
     );
   }
 
@@ -60,7 +84,12 @@ const SignupForm = () => {
                   onChange={onChange}
                 />
                 <span className="email-input-separator">@</span>
-                <select className="form-control">
+                <select
+                  className="form-control"
+                  name="domain_input"
+                  value={domain_input}
+                  onChange={onChange}
+                >
                   <option>선택해주세요</option>
                   {domainList}
                   <option value="client-input">직접입력</option>
@@ -90,6 +119,9 @@ const SignupForm = () => {
                 type="password"
                 id="password-input-check"
                 placeholder="비밀번호"
+                name="password_check"
+                value={password_check}
+                onChange={onChange}
               />
             </li>
             <li className="input-group nickname-input">
@@ -105,9 +137,15 @@ const SignupForm = () => {
               />
             </li>
           </ul>
-          <a className="btn brand-color regular-h" onClick={createUser}>
+          <NavLink
+            to="/signin"
+            className={
+              "btn brand-color regular-h" + (isDone ? " " : " disabled")
+            }
+            onClick={CreateUser}
+          >
             회원가입하기
-          </a>
+          </NavLink>
         </form>
       </div>
     </main>
